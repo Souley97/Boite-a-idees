@@ -31,6 +31,10 @@ function validateField(field, value) {
     if (field === 'message' && value.length < 10) {
         return 'Le message doit contenir au moins 10 caractères.';
     }
+
+    if (field === 'message' && value.length >255) {
+        return '  Le message doit contenir au plus 255 caractères.';
+    }
     if (field === 'categorie' && !['politique', 'sport', 'sante', 'education'].includes(value)) {
         return 'Catégorie invalide.';
     }
@@ -66,7 +70,7 @@ function displayIdeas() {
         const sanitizedCategorie = sanitizeInput(idea.categorie);
 
         row.innerHTML = `
-                <div class="max-w-sm p-6 bg-white  max-h-64 min-h-64 shadow-md rounded-md drop-shadow-lg ${idea.approved ? 'border-green-700 border-2 shadow-2xl hover:bg-green-500 text-white ' : 'border-red-700 hover:bg-red-500 text-white  border-2'}">
+                <div class="max-w-sm justify-center p-6 overflow-hidden j  just bg-white h-64  max-h-64 min-h-64 shadow-md rounded-md drop-shadow-lg ${idea.approved ? 'border-green-700 border-2 shadow-2xl hover:bg-green-200 text-white ' : 'border-red-700 hover:bg-red-200 text-white  border-2'}">
     <div class="flex items-center space-x-2">
         <div class="flex-1">
             <h3 class="text-2xl font-medium text-gray-700 overflow-hidden text-ellipsis">${sanitizedLibelle}</h3>
@@ -74,8 +78,8 @@ function displayIdeas() {
             <p class="text-sm w-full text-gray-500 overflow-hidden text-ellipsis">${sanitizedMessage}</p>
         </div>
     </div>
-    <div class="btb flex-1 content-between gap-10 my-6 space-x-11 justify-end">
-        <button onclick="toggleApproval(${index})" class="mr-28 px-2 py-1 rounded-md ${idea.approved ? 'bg-gray-300 text-gray-700' : 'bg-green-500 text-white'}">${idea.approved ? 'Désapprouver' : 'Approuver'}</button>
+    <div class="btb flex-1  content-between gap-0 my-6 space-x-11 justify-end">
+        <button onclick="toggleApproval(${index})" class="mr-20 px-2 py-1 rounded-md ${idea.approved ? 'bg-gray-300 text-gray-700' : 'bg-green-500 text-white'}">${idea.approved ? 'Désapprouver' : 'Approuver'}</button>
         <button onclick="deleteIdea(${index})" class="px-2 py-1 bg-red-500 text-white rounded-md"><i class="fa-solid fa-trash"></i></button>
     </div>
 </div>
@@ -102,6 +106,17 @@ function deleteIdea(index) {
 // Charger les idées depuis le local storage au chargement de la page
 ideas = loadIdeas();
 displayIdeas();
+document.getElementById('message').addEventListener('input', function(event) {
+    const message = event.target.value;
+    const messageCounter = document.getElementById('messageCounter');
+    messageCounter.textContent = `${message.length}/255`;
+
+    if (message.length > 254) {
+        messageCounter.classList.add('text-red-500'); // Ajoutez une classe pour indiquer une erreur
+    } else {
+        messageCounter.classList.remove('text-red-500'); // Supprimez la classe d'erreur si le message est valide
+    }
+});
 
 // Événement de soumission du formulaire
 ideaForm.addEventListener('submit', function(event) {
