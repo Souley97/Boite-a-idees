@@ -57,64 +57,59 @@
 
   </div>
   <!-- deux  -->
-  <div class="flex row-col-12 w-full ">
-    <div class="max-w-6xl w-full col-8 px-20 ml-20 p-6 bg-white shadow-md rounded-md mt-10">
-      <h1 class="text-2xl font-semibold text-center mb-6">Formulaire d'ajout idees</h1>
+  <div class="flex flex-col lg:flex-row w-full">
+    <div class="max-w-full lg:max-w-6xl w-full lg:col-8 px-4 lg:px-20 ml-4 lg:ml-20 p-6 bg-white shadow-md rounded-md mt-10">
+        <h1 class="text-2xl font-semibold text-center mb-6">Formulaire d'ajout idées</h1>
 
-      <form id="ideaForm" class="space-y-6">
+        <form id="ideaForm" class="space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <label for="libelle" class="block text-sm font-medium text-gray-700">Libellé</label>
+                    <input type="text" id="libelle" name="libelle" placeholder="Votre libellé"
+                        class="mt-1 block py-4 w-full border-gray-300 bg-gray-100 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm">
+                    <div class="text-red-500 text-sm mt-1 message"></div>
+                </div>
+                <div>
+                    <label for="categorie" class="block text-sm font-medium text-gray-700">Catégorie</label>
+                    <select id="categorie" name="categorie"
+                        class="mt-1 block w-full p-5 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="" disabled selected>Choisir une catégorie</option>
+                        <option value="politique">Politique</option>
+                        <option value="sport">Sport</option>
+                        <option value="sante">Santé</option>
+                        <option value="education">Éducation</option>
+                        <!-- Ajouter d'autres catégories si nécessaire -->
+                    </select>
+                    <div class="text-red-500 text-sm mt-1 message"></div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                <textarea name="message" id="message" maxlength="255" placeholder="Votre message"
+                    class="mt-1 bg-gray-100 block h-36 w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"></textarea>
+                <span class="absolute right-2 bottom-2 text-red-500 text-sm mt-1 message" id="messageCounter">0/255</span>
+                <div class="text-red-500 text-sm mt-1 message"></div>
+            </div>
 
-        <div class=" flex row grid space-x-10 grid-cols-2 ">
-          <div class="col-6">
-            <label for="libelle" class="block text-sm font-medium text-gray-700">Libellé</label>
-            <input type="text" id="libelle" name="libelle" placeholder="Votre libelle"
-              class="mt-1 block py-4 w-full border-gray-300 bg-gray-100  rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm">
-            <div class="text-red-500 text-sm mt-1 message"></div>
-          </div>
-          <div>
-            <label for="categorie" class="block text-sm font-medium text-gray-700">Catégorie</label>
-            <select id="categorie" name="categorie"
-              class="mt-1 block w-full p-5 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-              <option value="" disabled selected>Choisir une catégorie</option>
-              <option value="politique">Politique</option>
-              <option value="sport">Sport</option>
-              <option value="sante">Santé</option>
-              <option value="education">Éducation</option>
-              <!-- Ajouter d'autres catégories si nécessaire -->
-            </select>
-            <div class="text-red-500 text-sm mt-1 message"></div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-          <textarea name="message" id="message" maxlength="255" placeholder="Votre message"
-            class="mt-1 bg-gray-100 block h-36  w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"></textarea>
-          <!-- <input type="text" id="message" name="message" placeholder="Votre message" class="mt-1 bg-gray-100 block py-12 w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"> -->
-          <span class="absolute right-2 bottom-2 text-red-500 text-sm mt-1 message" id="messageCounter">0/255</span>
-          <div class=" text-red-500 text-sm mt-1 message"></div>
-        </div>
+            <div>
+                <button type="submit"
+                    class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Soumettre</button>
+            </div>
+        </form>
 
-
-        <div>
-          <!-- <input type="submit" name="submit" value="Envoyer" class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"> -->
-          <button type="submit"
-            class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Soumettre</button>
-
-        </div>
-      </form>
-
-      <div id="messageBox" class="hidden mt-4 p-4 rounded-md"></div>
-
+        <div id="messageBox" class="hidden mt-4 p-4 rounded-md"></div>
     </div>
-    <!-- image decourage  -->
-      <div class="flex opacity-5 justify-center mx-12 ml-10 items-center ">
+
+    <div class="flex opacity-50 justify-center mx-4 lg:mx-12 ml-4 lg:ml-10 items-center mt-10 lg:mt-0">
         <img src="https://imgs.search.brave.com/y4GpuxcZmc0WGFb3iTNeFE4z2-WVKqB5GL4wbdflLCo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFTZklkM0FzT0wu/anBn" alt="decourage">
-      </div>
-    
-  </div>
-    <div class="grid gap-16 grid-cols-4 m-20" id="ideasList">
-      <!--  -->
     </div>
+</div>
+
+<div class="grid gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 m-4 lg:m-20" id="ideasList">
+    <!--  -->
+</div>
+
 
 
   </div>

@@ -70,19 +70,20 @@ function displayIdeas() {
         const sanitizedCategorie = sanitizeInput(idea.categorie);
 
         row.innerHTML = `
-                <div class="max-w-sm justify-center p-6 overflow-hidden j  just bg-white h-64  max-h-64 min-h-64 shadow-md rounded-md drop-shadow-lg ${idea.approved ? 'border-green-700 border-2 shadow-2xl hover:bg-green-200 text-white ' : 'border-red-700 hover:bg-red-200 text-white  border-2'}">
-    <div class="flex items-center space-x-2">
+               <div class="max-w-full sm:max-w-sm p-6 bg-white shadow-md rounded-md ${idea.approved ? 'border-green-700 border-2 shadow-2xl hover:bg-green-200 text-white ' : 'border-red-700 hover:bg-red-200 text-white  border-2'}">
+    <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
         <div class="flex-1">
-            <h3 class="text-2xl font-medium text-gray-700 overflow-hidden text-ellipsis">${sanitizedLibelle}</h3>
-            <span class="text-xl text-gray-500 overflow-hidden text-ellipsis">${sanitizedCategorie}</span>
+            <h3 class="text-lg sm:text-2xl font-medium text-gray-700 overflow-hidden text-ellipsis">${sanitizedLibelle}</h3>
+            <span class="text-base sm:text-xl text-gray-500 overflow-hidden text-ellipsis">${sanitizedCategorie}</span>
             <p class="text-sm w-full text-gray-500 overflow-hidden text-ellipsis">${sanitizedMessage}</p>
         </div>
     </div>
-    <div class="btb flex-1  content-between gap-0 my-6 space-x-11 justify-end">
-        <button onclick="toggleApproval(${index})" class="mr-20 px-2 py-1 rounded-md ${idea.approved ? 'bg-gray-300 text-gray-700' : 'bg-green-500 text-white'}">${idea.approved ? 'Désapprouver' : 'Approuver'}</button>
+    <div class="flex flex-col sm:flex-row sm:justify-end gap-2 mt-4 sm:mt-6">
+        <button onclick="toggleApproval(${index})" class="px-2 py-1 rounded-md ${idea.approved ? 'bg-gray-300 text-gray-700' : 'bg-green-500 text-white'}">${idea.approved ? 'Désapprouver' : 'Approuver'}</button>
         <button onclick="deleteIdea(${index})" class="px-2 py-1 bg-red-500 text-white rounded-md"><i class="fa-solid fa-trash"></i></button>
     </div>
 </div>
+
 
         `;
         ideasList.appendChild(row);
