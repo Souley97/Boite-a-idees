@@ -1,110 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validation de formulaire avec le langage JavaScript et Tailwind CSS</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <!-- Include DOMPurify -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.4/purify.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation de formulaire avec le langage JavaScript et Tailwind CSS</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Include DOMPurify -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.4/purify.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
+
 <body class="bg-gray-100">
-    <div class="grid xl:grid-cols-1 grid-cols-1">
-        <div class="p-5">
-          <div class="py-3 px-3 rounded-xl border w-full bg-red-700">
-            <div class="flex justify-between items-center">
-              <div class="flex justify-items-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="w-6 h-6 text-white ">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-                </svg>
-                <p class=" font-semibold text-white">Boite a idee</p>
-                <div style="position: relative;">
-                  <!-- <input class="rounded-3xl py-3 px-3 outline-none text-xs w-[350px] pr-10 hidden lg:block md:block" disabled placeholder="Search for Grocery, Stores, Vegetable, or Meat"> -->
-                  <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+  <div class="grid xl:grid-cols-1 grid-cols-1">
+    <div class="p-5">
+      <div class="py-3 px-3 rounded-xl border w-full bg-red-700">
+        <div class="flex justify-between items-center">
+          <div class="flex justify-items-center items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 text-white ">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            </svg>
+            <p class=" font-semibold text-white">Boite a idee</p>
+            <div style="position: relative;">
+              <!-- <input class="rounded-3xl py-3 px-3 outline-none text-xs w-[350px] pr-10 hidden lg:block md:block" disabled placeholder="Search for Grocery, Stores, Vegetable, or Meat"> -->
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor"
                     class="w-5 h-5 text-green-900 absolute right-3 top-1/2 transform -translate-y-1/2 hidden lg:block md:block">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                   </svg> -->
-                </div>
-      
-      
-              </div>
-              <div class="flex justify-items-center items-center gap-2 ">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                  class="w-5 h-5 text-yellow-300 hidden lg:block md:block">
-                  <path fill-rule="evenodd"
-                    d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
-                    clip-rule="evenodd" />
-                </svg>
-      
-                <p class="text-sm text-white hidden lg:block md:block">Souleymane Ndiaye
-                  </p>
-                
-      
-                <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white" src="https://bdesign-eight.vercel.app/assets/img/BMB.png" alt="">
-              </div>
             </div>
+
+
+          </div>
+          <div class="flex justify-items-center items-center gap-2 ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-5 h-5 text-yellow-300 hidden lg:block md:block">
+              <path fill-rule="evenodd"
+                d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+                clip-rule="evenodd" />
             </svg>
+
+            <p class="text-sm text-white hidden lg:block md:block">Souleymane Ndiaye
+            </p>
+
+
+            <img class="inline-block w-8 h-8 rounded-full ring-2 ring-white"
+              src="https://bdesign-eight.vercel.app/assets/img/BMB.png" alt="">
           </div>
         </div>
-      
+        </svg>
       </div>
-<div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md mt-10">
-    <h1 class="text-2xl font-semibold text-center mb-6">Formulaire</h1>
-
-    <form id="ideaForm" class="space-y-6">
-        <div>
-            <label for="libelle" class="block text-sm font-medium text-gray-700">Libellé</label>
-            <input type="text" id="libelle" name="libelle" placeholder="Votre libelle" class="mt-1 block py-4 w-full border-gray-300 bg-gray-100  rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm">
-            <div class="text-red-500 text-sm mt-1 message"></div>
-        </div>
-        <div >
-            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-            <input type="text" id="message" name="message" placeholder="Votre message" class="mt-1 bg-gray-100 block py-12 w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm">
-                <div class="text-red-500 text-sm mt-1 message"></div>
-        </div>
-        <div >
-            <label for="categorie" class="block text-sm font-medium text-gray-700">Catégorie</label>
-            <select id="categorie" name="categorie" class="mt-1 block w-full p-5 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                <option value="" disabled selected>Choisir une catégorie</option>
-                <option value="politique">Politique</option>
-                <option value="sport">Sport</option>
-                <option value="sante">Santé</option>
-                <option value="education">Éducation</option>
-                <!-- Ajouter d'autres catégories si nécessaire -->
-            </select>
-             <div class="text-red-500 text-sm mt-1 message"></div>
-        </div>
-        
-        <div >
-            <!-- <input type="submit" name="submit" value="Envoyer" class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"> -->
-            <button type="submit" class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Soumettre</button>
-
-        </div>
-    </form>
-
-    <div id="messageBox" class="hidden mt-4 p-4 rounded-md"></div>
-    <div id="" class="mt-8">
-        <h2 class="text-lg font-medium text-gray-700">Liste des Idées</h2>
-        <table class="w-full table-auto">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2">Libellé</th>
-                    <th class="px-4 py-2">Message</th>
-                    <th class="px-4 py-2">Catégorie</th>
-                    <th class="px-4 py-2">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="ideasList">
-                <!-- Les idées seront ajoutées ici dynamiquement -->
-            </tbody>
-        </table>
     </div>
-</div>
 
-<script src="script.js"></script>
+  </div>
+  <!-- deux  -->
+  <div class="flex row-col-12 w-full">
+    <div class="max-w-7xl w-full col-8 px-20 ml-20 p-6 bg-white shadow-md rounded-md mt-10">
+      <h1 class="text-2xl font-semibold text-center mb-6">Formulaire d'ajout idees</h1>
+
+      <form id="ideaForm" class="space-y-6">
+
+        <div class=" flex row grid space-x-10 grid-cols-2 ">
+          <div class="col-6">
+            <label for="libelle" class="block text-sm font-medium text-gray-700">Libellé</label>
+            <input type="text" id="libelle" name="libelle" placeholder="Votre libelle"
+              class="mt-1 block py-4 w-full border-gray-300 bg-gray-100  rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm">
+            <div class="text-red-500 text-sm mt-1 message"></div>
+          </div>
+          <div>
+            <label for="categorie" class="block text-sm font-medium text-gray-700">Catégorie</label>
+            <select id="categorie" name="categorie"
+              class="mt-1 block w-full p-5 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <option value="" disabled selected>Choisir une catégorie</option>
+              <option value="politique">Politique</option>
+              <option value="sport">Sport</option>
+              <option value="sante">Santé</option>
+              <option value="education">Éducation</option>
+              <!-- Ajouter d'autres catégories si nécessaire -->
+            </select>
+            <div class="text-red-500 text-sm mt-1 message"></div>
+          </div>
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea name="message" id="message" placeholder="Votre message"
+            class="mt-1 bg-gray-100 block h-36  w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"></textarea>
+          <!-- <input type="text" id="message" name="message" placeholder="Votre message" class="mt-1 bg-gray-100 block py-12 w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"> -->
+          <div class="text-red-500 text-sm mt-1 message"></div>
+        </div>
+
+
+        <div>
+          <!-- <input type="submit" name="submit" value="Envoyer" class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"> -->
+          <button type="submit"
+            class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Soumettre</button>
+
+        </div>
+      </form>
+
+      <div id="messageBox" class="hidden mt-4 p-4 rounded-md"></div>
+
+    </div>
+    <!-- image decourage  -->
+      <div class="flex opacity-5 justify-center mt-12 ml-10 items-center ">
+        <img src="https://imgs.search.brave.com/y4GpuxcZmc0WGFb3iTNeFE4z2-WVKqB5GL4wbdflLCo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFTZklkM0FzT0wu/anBn" alt="decourage">
+      </div>
+    
+  </div>
+    <div class="grid gap-16 grid-cols-4 m-20" id="ideasList">
+      <!--  -->
+    </div>
+
+
+  </div>
+
+
+
+  <script src="script.js"></script>
 </body>
+
 </html>
