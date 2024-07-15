@@ -93,7 +93,7 @@
             </div>
 
             <div>
-                <button type="submit"
+                <button type="submit" id="submit" onclick="updateIdea()"
                     class="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Soumettre</button>
             </div>
         </form>
@@ -115,8 +115,11 @@
   </div>
 
 
+<!-- Insert these scripts in your HTML file -->
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database-compat.js"></script>
 
-  <script src="script.js"></script>
+  <script src="firebase.js"></script>
 </body>
 
 </html>
